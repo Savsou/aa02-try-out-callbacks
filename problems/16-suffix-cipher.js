@@ -32,12 +32,28 @@ console.log(suffixCipher('incremental progress is very instrumental', cipher2));
 *******************************************************************************/
 
 function suffixCipher(sentence, cipher) {
-  // Your code here 
+  let words = sentence.split(' ');
+
+  //cipher is an object.
+  //do cb for each word
+  let newWords = words.map(word => {
+    //check for each suffix
+    for (let suffix in cipher) {
+      //if the word ends with the suffix, apply the callback for the suffix
+      if (word.endsWith(suffix)) {
+        return cipher[suffix](word);
+      }
+    }
+    //no matching suffix is found, return the word
+    return word;
+  })
+
+  return newWords.join(' ');
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = suffixCipher;
-} catch(e) {
+} catch (e) {
   return null;
 }

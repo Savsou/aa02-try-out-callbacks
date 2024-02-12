@@ -31,13 +31,23 @@ console.log(
 // [ 'art', 'app', 'buttery' ]
 *******************************************************************************/
 
-let xorSelect = function(array, cb1, cb2) {
-  // Your code here 
+let xorSelect = function (array, cb1, cb2) {
+  let newArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+
+    if ((cb1(el) === true && cb2(el) === !true) || (cb1(el) === !true && cb2(el) === true)) {
+      newArray.push(el);
+    }
+  }
+
+  return newArray;
 };
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = xorSelect;
-} catch(e) {
+} catch (e) {
   return null;
 }
