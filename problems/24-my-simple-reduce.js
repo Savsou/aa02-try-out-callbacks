@@ -31,7 +31,15 @@ console.log(result3); // 8
 *******************************************************************************/
 
 function mySimpleReduce(array, cb) {
-  // Your code here 
+  let accumulator = array[0];
+
+  //start at 1 since accumulator already contain the first element
+  for (let i = 1; i < array.length; i++) {
+    let el = array[i];
+    accumulator = cb(accumulator, el)
+  }
+
+  return accumulator;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
