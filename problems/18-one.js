@@ -38,12 +38,33 @@ console.log(result6);   // true
 *******************************************************************************/
 
 function one(array, cb) {
-  // Your code here 
+  // let oneTrue = [];
+
+  // for (let i = 0; i < array.length; i++) {
+  //   let el = array[i];
+
+  //   if (cb(el, i)) {
+  //     oneTrue.push(el);
+  //   }
+  // }
+  // if (oneTrue.length === 1) {
+  //   return true;
+  // }
+
+  // return false;
+
+  //Could be shortened to:
+  let oneTrue = array.filter((el, i) => {
+    return cb(el, i);
+  })
+
+  return oneTrue.length === 1;
+
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
   module.exports = one;
-} catch(e) {
+} catch (e) {
   return null;
 }
