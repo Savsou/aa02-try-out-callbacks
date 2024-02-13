@@ -25,13 +25,22 @@ console.log(result3);   // true
 
 function mySome(array, cb) {
 
-    for (let i = 0; i < array.length; i++) {
-        let el = array[i];
-        if (cb(el, i, array)) {
-            return true;
+    // for (let i = 0; i < array.length; i++) {
+    //     let el = array[i];
+    //     if (cb(el, i, array)) {
+    //         return true;
+    //     }
+    // }
+
+    //for each, have a variable act as a switch to mimic .some:
+    result = false;
+    array.forEach((el, i, array) => {
+        if (cb(el, i)) {
+            result = true;
         }
-    }
-    return false;
+    })
+
+    return result;
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/

@@ -29,12 +29,19 @@ console.log(result4); // 0
 function count(array, cb) {
   let counter = 0;
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+  // for (let i = 0; i < array.length; i++) {
+  //   let el = array[i];
+  //   if (cb(el)) {
+  //     counter++;
+  //   }
+  // }
+
+  //forEach:
+  let trueArray = array.forEach(el => {
     if (cb(el)) {
       counter++;
     }
-  }
+  })
 
   return counter;
 }

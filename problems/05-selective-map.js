@@ -39,15 +39,24 @@ console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
 function selectiveMap(array, selector, mapper) {
     let newArray = [];
 
-    for (let i = 0; i < array.length; i++) {
-        let el = array[i];
+    // for (let i = 0; i < array.length; i++) {
+    //     let el = array[i];
 
+    //     if (selector(el)) {
+    //         newArray.push(mapper(el));
+    //     } else {
+    //         newArray.push(el);
+    //     }
+    // }
+
+    //Or with forEach
+    array.forEach(el => {
         if (selector(el)) {
             newArray.push(mapper(el));
         } else {
             newArray.push(el);
         }
-    }
+    })
 
     return newArray;
 }
