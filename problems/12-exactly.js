@@ -28,15 +28,25 @@ console.log(result4); // true
 *******************************************************************************/
 
 function exactly(array, num, cb) {
-  let newArray = [];
+  // let newArray = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+  // for (let i = 0; i < array.length; i++) {
+  //   let el = array[i];
 
-    if (cb(el)) {
-      newArray.push(el);
-    }
-  }
+  //   if (cb(el)) {
+  //     newArray.push(el);
+  //   }
+  // }
+
+  // if (newArray.length === num) {
+  //   return true;
+  // }
+  // return false;
+
+  //filter method:
+  let newArray = array.filter(el => {
+    return cb(el);
+  });
 
   if (newArray.length === num) {
     return true;

@@ -29,14 +29,20 @@ console.log(andSelect(['ants', 'APPLES', 'ART', 'BACON', 'arm'], isUpperCase,  s
 *******************************************************************************/
 
 function andSelect(array, cb1, cb2) {
-  let newArray = [];
+  // let newArray = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
-    if (cb1(el) === true && cb2(el) === true) {
-      newArray.push(el);
-    }
-  }
+  // for (let i = 0; i < array.length; i++) {
+  //   let el = array[i];
+  //   if (cb1(el) === true && cb2(el) === true) {
+  //     newArray.push(el);
+  //   }
+  // }
+
+
+  //filter method if i want to check if each element going through returns a true or false to make the array
+  let newArray = array.filter(el => {
+    return (cb1(el) == true && cb2(el) == true)
+  })
 
   return newArray;
 }
