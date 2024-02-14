@@ -30,15 +30,22 @@ console.log(result4);   // false
 
 function none(array, cb) {
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+  // for (let i = 0; i < array.length; i++) {
+  //   let el = array[i];
 
-    if (cb(el)) {
-      return false;
-    }
-  }
+  //   if (cb(el)) {
+  //     return false;
+  //   }
+  // }
 
-  return true;
+  // return true;
+
+  //using filter: if the
+  let result = array.filter(el => {
+    return cb(el)
+  })
+  //if it's ever true, the length will be at least 1 which will return a false
+  return result.length === 0
 }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
