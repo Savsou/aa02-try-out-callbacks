@@ -9,26 +9,52 @@ console.log(minValueCallback([64, 25, 49, 9, 100]));             // 9
 console.log(minValueCallback([64, 25, 49, 9, 100], Math.sqrt));  // 3
 
 *******************************************************************************/
-function findMinValue(array) {
-  let minVal = array[0];
+// function findMinValue(array) {
+//   let minVal = array[0];
 
-  for (let i = 0; i < array.length; i++) {
-    let el = array[i];
+//   for (let i = 0; i < array.length; i++) {
+//     let el = array[i];
 
-    if (minVal > el) {
-      minVal = el;
-    }
-  }
-  return minVal;
-}
+//     if (minVal > el) {
+//       minVal = el;
+//     }
+//   }
+//   return minVal;
+// }
 
+// function minValueCallback(array, cb) {
+
+//   let min = array.reduce((acc, num) => {
+//     if (num < acc) {
+//       return num;
+//     } else {
+//       return acc;
+//     }
+//   })
+
+//   if (!cb) {
+//     return findMinValue(array);
+//   } else {
+//     let newValue = findMinValue(array);
+//     return cb(newValue);
+//   }
+
+// }
+
+//without helper function and using reduce
 function minValueCallback(array, cb) {
+  let min = array.reduce((acc, num) => {
+    if (num < acc) {
+      return num;
+    } else {
+      return acc;
+    }
+  });
 
   if (!cb) {
-    return findMinValue(array);
+    return min;
   } else {
-    let newValue = findMinValue(array);
-    return cb(newValue);
+    return cb(min);
   }
 
 }
